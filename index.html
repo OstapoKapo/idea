@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:500.700">
+    
+    <title>Idea</title>
+    
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">Команда Yanatrne.FM</div>
+        <main class="page-content">
+            <div class="page-content__row">
+                <div class="card card1 hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">Mountain View</h2>
+                      <p class="copy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p>
+                      
+                    </div>
+                  </div>
+                  <div class="card card2  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">To The Beach</h2>
+                      <p class="copy">Plan your next beach trip with these fabulous destinations</p>
+                    
+                    </div>
+                  </div>
+                  <div class="card card3  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">Desert Destinations</h2>
+                      <p class="copy">It's the desert you've always dreamed of</p>
+                      
+                    </div>
+                  </div>
+            </div>
+            <div class="page-content__row">
+                <div class="card card1  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">Mountain View</h2>
+                      <p class="copy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p>
+                      
+                    </div>
+                  </div>
+                  <div class="card card2  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">To The Beach</h2>
+                      <p class="copy">Plan your next beach trip with these fabulous destinations</p>
+                    
+                    </div>
+                  </div>
+                  <div class="card card3  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">Desert Destinations</h2>
+                      <p class="copy">It's the desert you've always dreamed of</p>
+                      
+                    </div>
+                  </div>
+            </div>
+            <div class="page-content__row">
+                <div class="card card1  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">Mountain View</h2>
+                      <p class="copy">Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains</p>
+                      
+                    </div>
+                  </div>
+                  <div class="card card2  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">To The Beach</h2>
+                      <p class="copy">Plan your next beach trip with these fabulous destinations</p>
+                    
+                    </div>
+                  </div>
+                  <div class="card card3  hover-card card-rounded">
+                    <div class="content">
+                      <h2 class="title">Desert Destinations</h2>
+                      <p class="copy">It's the desert you've always dreamed of</p>
+                      
+                    </div>
+                  </div>
+            </div>
+            </div>
+          </main>
+    </div>
+    
+
+      <script>
+
+const cards = Array.from(document.querySelectorAll('.hover-card'));
+const props = {
+  perspective: '500px',
+  delta: 15, // adjust this to see different effects whilst hovering
+  cardWidth: cards[0].clientWidth,
+  cardHeight: cards[0].clientHeight,
+}
+
+const midWidth = props.cardWidth / 2;
+const midHeight = props.cardHeight / 2;
+
+for (const card of cards) {
+  card.addEventListener('mousemove', mouseOverCard);
+  card.addEventListener('mouseleave', mouseLeftCard);
+}
+
+function mouseOverCard(e) {
+  // cursor relative to card
+  const cursorX = e.pageX - this.offsetLeft; 
+  const cursorY = e.pageY - this.offsetTop;
+  const cursCenterX = midWidth - cursorX;
+  const cursCenterY = midHeight - cursorY;
+
+  // Fallback for <=IE11
+  // this.style.cssText += `transform: perspective(${props.perspective}) rotateX(${cursCenterY / props.delta}deg) rotateY(${-cursCenterX / props.delta}deg)`;
+
+  Object.assign(this.style, {
+    transform: `perspective(${props.perspective}) rotateX(${cursCenterY / props.delta}deg) rotateY(${-cursCenterX / props.delta}deg)`
+  });
+  this.classList.remove('mouse-out');
+}
+function mouseLeftCard() {
+  this.classList.add('mouse-out');
+}
+      </script>
+</body>
+</html>
